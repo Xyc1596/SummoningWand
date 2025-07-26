@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "summoningwand:summoning_wand"
+    }
+  ],
+  "result": {
+    "item": "summoningwand:summoning_wand"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "tp": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.enderman.teleport",
+        "volume": 0.5
+      }
+    ],
+    "subtitle": "sound.summoningwand.tp"
+  }
+}

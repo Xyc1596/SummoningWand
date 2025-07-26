@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "summoningwand:item/summoning_wand_activated"
+  }
+}

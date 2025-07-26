@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/handheld",
+  "overrides": [
+    {
+      "model": "summoningwand:item/summoning_wand_activated",
+      "predicate": {
+        "summoningwand:bind_state": 1.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "summoningwand:item/summoning_wand"
+  }
+}
