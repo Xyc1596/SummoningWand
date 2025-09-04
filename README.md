@@ -2,13 +2,11 @@
 
 Language: [简体中文](README_zh.md) | **English**
 
-<div style="text-align: center;">
+<div align="center">
 <img src="src/main/resources/icon.png" alt="icon.png"/>
 </div>
 
-A <span class="hide">Not</span> simple, user-friendly, powerful and highly configurable utility mod<br/>
 This mod adds only one item - the Summoning Wand, which can teleport bound entities to your location<br/>
-~~Also helps to reclaim your mounts/vehicles from your mischievous friends~~<span class="hide">~~(though they can steal them back the same way)~~</span>
 
 * **For:** Casual players who don't want to transport entities manually or type `/tp` commands
 * **Use Cases:** Summoning mounts/vehicles, transporting mobs, ...
@@ -16,7 +14,7 @@ This mod adds only one item - the Summoning Wand, which can teleport bound entit
     * Minecraft Version: 1.20.1
     * Forge MDK Version: 47.4.0
 * **Supported Versions:**
-<div class="center">
+<div align="center">
 
 | Minecraft | Forge |        NeoForge         |
 |:---------:|:-----:|:-----------------------:|
@@ -34,7 +32,7 @@ This mod adds only one item - the Summoning Wand, which can teleport bound entit
 * Creative Tab: Tools & Utilities
 * Durability: 132
 * Crafting Recipe:
-<div style="text-align: center;">
+<div align="center">
 <img src="res/recipe.png" alt="recipe.png">
 </div>
 
@@ -92,5 +90,3 @@ See [`Config.java`](src/main/java/xyc/summoningwand/Config.java)
 ## Notes
 This is my first Minecraft mod and a learning project for Forge/NeoForge development.<br/>
 Submit an [issue](https://github.com/Xyc1596/SummoningWand/issues) <!--or comment on the [demo video]()--> if you find bugs or have suggestions.
-
-<link rel="stylesheet" href="res/style.css"/>

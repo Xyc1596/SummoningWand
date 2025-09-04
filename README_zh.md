@@ -2,13 +2,11 @@
 
 语言: **简体中文** | [English](README.md)
 
-<div style="text-align: center;">
+<div align="center">
 <img src="src/main/resources/icon.png" alt="icon.png"/>
 </div>
 
-<span class="hide">并非</span>简单、易用、功能强大、高度可配置的实用性模组<br/>
 本模组只添加了一个物品——召唤魔杖，可以随时随地将绑定的实体传送到你的周围<br/>
-~~还可以从熊孩子朋友手中夺回你的坐骑/载具~~<span class="hide">~~对方当然也可以采用相同方法抢回去~~</span>
 
 * **适合人群**：懒得费力搬运实体或手打`/tp`命令的休闲玩家
 * **适用场景**：召唤坐骑/载具、运输生物、……
@@ -16,7 +14,8 @@
   * Minecraft版本：1.20.1
   * Forge MDK版本：47.4.0
 * **支持版本**：
-<div class="center">
+
+<div align="center">
 
 | Minecraft | Forge | NeoForge |
 |:---------:|:-----:|:--------:|
@@ -34,17 +33,13 @@
 * 创造标签页：工具与用品
 * 耐久：132
 * 合成配方：
-<div style="text-align: center;">
+<div align="center">
 <img src="res/recipe.png" alt="recipe.png">
 </div>
 
 ### 使用方法
 * **绑定实体**：指定的手（默认为**副手**）持有召唤魔杖时，右击交互实体，可将实体绑定到魔杖；
-  * 未绑定实体的魔杖纹理为<span>
-<img src="res/summoning_wand_32x.png" alt="summoning_wand.png" />
-  </span>；绑定实体后魔杖纹理变为<span>
-<img src="res/summoning_wand_activated_32x.png" alt="summoning_wand_activated.png" />
-  </span>，名称变为黄色并在括号内注明被绑定实体的名称或类型；
+  * 未绑定实体的魔杖纹理为 <span><img src="res/summoning_wand_32x.png" alt="summoning_wand.png" /></span> ；绑定实体后魔杖纹理变为 <span><img src="res/summoning_wand_activated_32x.png" alt="summoning_wand_activated.png" /></span> ，名称变为黄色并在括号内注明被绑定实体的名称或类型；
   * 魔杖会保存实体 UUID ，因此退出世界重新进入不会导致绑定失效；
   * 默认可绑定的实体类型：非玩家生物、下落的方块、矿车、船等；
 * **传送实体**：指定的手（默认为**主手**）持有召唤魔杖时，右击交互方块，可将被绑定的实体传送到目标位置;
@@ -72,7 +67,7 @@
     * `REFRESH`：更新配置信息
 
 > 物品与实体/方块交互事件在客户端和服务端同时触发，而在服务端触发的交互事件无法直接读取到客户端配置；<br/>
-> 本 Mod 在玩家连接服务器或更新配置时将客户端配置同步到服务端，使得本地的魔杖使用手配置在服务端生效<span class="hide">得到所有手</span>。
+> 本 Mod 在玩家连接服务器或更新配置时将客户端配置同步到服务端，使得本地的魔杖使用手配置在服务端生效。
 
 ## 配置项
 见[`Config.java`](src/main/java/xyc/summoningwand/Config.java)
@@ -93,6 +88,4 @@
 
 ## 说明
 本项目是我的第一个 Minecraft 模组作品，同时也是初学 Forge/NeoForge 模组开发的产物<br/>
-如遇Bug或有任何疑问/建议，欢迎提交 [issue](https://github.com/Xyc1596/SummoningWand/issues) 或在[介绍视频]()的评论区反馈
-
-<link rel="stylesheet" href="res/style.css"/>
+如遇Bug或有任何疑问/建议，欢迎提交 [issue](https://github.com/Xyc1596/SummoningWand/issues) <!--或在[介绍视频]()的评论区反馈-->
