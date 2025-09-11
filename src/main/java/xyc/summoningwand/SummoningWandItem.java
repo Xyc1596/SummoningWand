@@ -29,6 +29,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -203,6 +204,11 @@ public class SummoningWandItem extends Item
         };
     }
 
+    protected static boolean isValidUser(Entity user)
+    {
+        return !(user instanceof FakePlayer);
+    }
+
     protected static boolean isValidTarget(Entity target)
     {
         EntityType<?> type = target.getType();
@@ -214,7 +220,8 @@ public class SummoningWandItem extends Item
     protected static boolean isRealPlayer(Entity target)
     {
         if (target instanceof Player player)
-            return ModList.get().isLoaded("curtain") && !(player instanceof EntityPlayerMPFake);
+            return ModList.get().isLoaded("curtain")
+                && !(player instanceof EntityPlayerMPFake || player instanceof FakePlayer);
         else
             return false;
     }
@@ -230,6 +237,7 @@ public class SummoningWandItem extends Item
     {
         // 参考：net.minecraft.server.commands.TeleportCommand#performeTeleport
         // Curtain假人直接moveTo会错位（模型与实际位置不一致）
+
         if (target.teleportTo(level, pos.getX()+0.5F, pos.getY(), pos.getZ()+0.5F,
                               Set.of(), target.getYRot(), target.getXRot())) {
             if (!(target instanceof LivingEntity living && living.isFallFlying())) {
@@ -270,6 +278,9 @@ public class SummoningWandItem extends Item
             return;
 
         Player player = event.getEntity();
+        if (!isValidUser(player))
+            return;
+
         boolean isClientSide = event.getLevel().isClientSide();
         WandUseHand properHand = WandUseHandManager.getProperHand(player, UseOn.BLOCK, isClientSide);
         if (notHoldingWandInProperHand(player, properHand))
@@ -393,6 +404,9 @@ public class SummoningWandItem extends Item
             return;
 
         Player player = event.getEntity();
+        if (!isValidUser(player))
+            return;
+
         boolean isClientSide = event.getLevel().isClientSide();
         WandUseHand properHand = WandUseHandManager.getProperHand(player, UseOn.ENTITY, isClientSide);
         if (notHoldingWandInProperHand(player, properHand))

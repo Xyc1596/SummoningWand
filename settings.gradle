@@ -2,10 +2,6 @@ pluginManagement {
     repositories {
         gradlePluginPortal()
         maven {
-            name = 'Lss233'
-            url = 'https://lss233.littleservice.cn/repositories/minecraft'
-        }
-        maven {
             name = 'MinecraftForge'
             url = 'https://maven.minecraftforge.net/'
         }
