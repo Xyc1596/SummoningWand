@@ -4,6 +4,8 @@
 
 Modrinth：[Summoning Wand](https://modrinth.com/mod/summoningwand)
 
+Modrinth: [Summoning Wand](https://modrinth.com/mod/summoningwand)
+
 <div align="center">
 <img src="src/main/resources/icon.png" alt="icon.png"/>
 </div>
