@@ -1,6 +1,5 @@
 package xyc.summoningwand;
 
-import dev.dubhe.curtain.features.player.patches.EntityPlayerMPFake;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.item.ItemProperties;
@@ -33,7 +32,6 @@ import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -204,26 +202,17 @@ public class SummoningWandItem extends Item
         };
     }
 
-    protected static boolean isValidUser(Entity user)
+    protected static boolean notValidUser(Entity user)
     {
-        return !(user instanceof FakePlayer);
+        return user instanceof FakePlayer;
     }
 
-    protected static boolean isValidTarget(Entity target)
+    protected static boolean notValidTarget(Entity target)
     {
         EntityType<?> type = target.getType();
         if (Config.entityWhitelist.contains(type))
-            return true;
-        return !(isRealPlayer(target) || Config.entityBlacklist.contains(type));
-    }
-
-    protected static boolean isRealPlayer(Entity target)
-    {
-        if (target instanceof Player player)
-            return ModList.get().isLoaded("curtain")
-                && !(player instanceof EntityPlayerMPFake || player instanceof FakePlayer);
-        else
             return false;
+        return Config.entityBlacklist.contains(type);
     }
 
     @Nullable
@@ -278,7 +267,7 @@ public class SummoningWandItem extends Item
             return;
 
         Player player = event.getEntity();
-        if (!isValidUser(player))
+        if (notValidUser(player))
             return;
 
         boolean isClientSide = event.getLevel().isClientSide();
@@ -404,7 +393,7 @@ public class SummoningWandItem extends Item
             return;
 
         Player player = event.getEntity();
-        if (!isValidUser(player))
+        if (notValidUser(player))
             return;
 
         boolean isClientSide = event.getLevel().isClientSide();
@@ -426,7 +415,7 @@ public class SummoningWandItem extends Item
         }
 
         Entity target = event.getTarget();
-        if (!isValidTarget(target)) {
+        if (notValidTarget(target)) {
             player.displayClientMessage(
                 Component.translatable(
                     MESSAGE_BIND_ENTITY_BANNED,

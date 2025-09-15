@@ -145,7 +145,7 @@ public class Config
                 Blocks that are NOT considered as valid target positions.
                 By default, any place occupied by a block with no collision box
                 (e.g. air, liquids and portals) is a valid target position.
-                Use "#" prefix to represent a tag; the "minecraft:" namespace prefix can be omitted.
+                Use "#" prefix for a tag; the "minecraft:" namespace prefix can be omitted.
                 Default: []
                 Example: ["nether_portal", "minecraft:water", "#flowers"]""")
         .defineListAllowEmpty("blockBlacklist", List::of, Objects::nonNull);
@@ -156,7 +156,7 @@ public class Config
                 Blocks that are compulsorily considered as valid target positions.
                 This list has the highest priority, which means the wand will try to teleport an entity to a block
                 listed below regardless of its existence in blockBlacklist and its collision box.
-                Use "#" prefix to represent a tag; the "minecraft:" namespace prefix can be omitted.
+                Use "#" prefix for a tag; the "minecraft:" namespace prefix can be omitted.
                 Default: []
                 Example: ["grass_block", "minecraft:dirt", "#stairs"]""")
         .defineListAllowEmpty("blockWhitelist", List::of, Objects::nonNull);
@@ -166,10 +166,10 @@ public class Config
                 
                 Entity types that are NOT considered as valid targets.
                 By default, any entity you can right-click to interact with
-                (e.g. mobs, minecarts, boats and falling blocks) except players is a valid target.
-                Use "#" prefix to represent a tag; the "minecraft:" namespace prefix can be omitted.
+                (e.g. mobs, vehicles and falling blocks) is a valid target.
+                Use "#" prefix for a tag; the "minecraft:" namespace prefix can be omitted.
                 Default: []
-                Example: ["villager", "minecraft:wolf, "#undead"]""")
+                Example: ["player", "minecraft:wolf, "#undead"]""")
         .defineListAllowEmpty("entityBlacklist", List::of, Objects::nonNull);
 
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> ENTITY_WHITELIST = COMMON_BUILDER
@@ -177,7 +177,7 @@ public class Config
                 
                 Entity types that are compulsorily considered as valid targets.
                 This list has higher priority than entityBlacklist.
-                Use "#" prefix to represent a tag; the "minecraft:" namespace prefix can be omitted.
+                Use "#" prefix for a tag; the "minecraft:" namespace prefix can be omitted.
                 Default: []
                 Example: ["player", "minecraft:falling_block"]""")
         .defineListAllowEmpty("entityWhitelist", List::of, Objects::nonNull);
