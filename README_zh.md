@@ -1,12 +1,14 @@
 # Summoning Wand 召唤魔杖
 
-语言: **简体中文** | [English](README.md)
+语言：**简体中文** | [English](README.md)
+
+Modrinth：[Summoning Wand](https://modrinth.com/mod/summoningwand)
 
 <div align="center">
 <img src="src/main/resources/icon.png" alt="icon.png"/>
 </div>
 
-本模组只添加了一个物品——召唤魔杖，可以随时随地将绑定的实体传送到你的周围<br/>
+本模组添加了一种可以将绑定的实体传送到你的周围的魔杖，工作原理与`/tp`命令相似。<br/>
 
 * **适合人群**：懒得费力搬运实体或手打`/tp`命令的休闲玩家
 * **适用场景**：召唤坐骑/载具、运输生物、……
@@ -41,7 +43,7 @@
 * **绑定实体**：指定的手（默认为**副手**）持有召唤魔杖时，右击交互实体，可将实体绑定到魔杖；
   * 未绑定实体的魔杖纹理为 <span><img src="res/summoning_wand_32x.png" alt="summoning_wand.png" /></span> ；绑定实体后魔杖纹理变为 <span><img src="res/summoning_wand_activated_32x.png" alt="summoning_wand_activated.png" /></span> ，名称变为黄色并在括号内注明被绑定实体的名称或类型；
   * 魔杖会保存实体 UUID ，因此退出世界重新进入不会导致绑定失效；
-  * 默认可绑定的实体类型：非玩家生物、下落的方块、矿车、船等；
+  * 默认可绑定的实体类型：所有能够被右键交互的实体，如生物（包括玩家）、载具（矿车、船等）、下落的方块等；
 * **传送实体**：指定的手（默认为**主手**）持有召唤魔杖时，右击交互方块，可将被绑定的实体传送到目标位置;
   * 传送机制与`/tp`命令基本一致，但乘客也会被一同传送；按住`Shift`可阻止乘客被传送；
   * 未加载区块内的实体无法被传送；
@@ -70,21 +72,24 @@
 > 本 Mod 在玩家连接服务器或更新配置时将客户端配置同步到服务端，使得本地的魔杖使用手配置在服务端生效。
 
 ## 配置项
-见[`Config.java`](src/main/java/xyc/summoningwand/Config.java)
+见[`Config.java`](src/main/java/xyc/summoningwand/Config.java)或本地配置文件
 
 ## Mod联动
-### Curtain
-* 召唤魔杖可以绑定和传送假人（`EntityPlayerMPFake`）
-
 ### Yes Steve Model
 * 召唤魔杖套用锄（`#yes_steve_model:hoes`）的手持动画
 
 ## 已测试的Mod兼容性
-> 理论上召唤魔杖可以绑定任何生物和大多数非生物实体，本节仅列出特殊情形
+> 理论上召唤魔杖可以绑定任何能够被右键交互的实体，包括所有生物和部分非生物实体；本节仅列出部分已测试的特殊情形作为示例。
+### Curtain
+* 召唤魔杖可以绑定和传送假人（`EntityPlayerMPFake`）
 ### Create
 * 召唤魔杖可以绑定和传送装配的矿车
 * 召唤魔杖无法绑定其他类型的动态结构（如风车和火车）
+### Immersive Aircraft
+* 召唤魔杖可以绑定和传送该Mod中的载具
 
+## 关于发布版本
+由于暂不了解如何自定义需要打包进Jar的文件，因此我选择构建完成后手动删除Jar中多余的`.cache/`和`xyc/summoningwand/datagen/`目录，使文件体积减小大约12 KB且不影响运行。
 
 ## 说明
 本项目是我的第一个 Minecraft 模组作品，同时也是初学 Forge/NeoForge 模组开发的产物<br/>

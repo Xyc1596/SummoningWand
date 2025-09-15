@@ -2,11 +2,13 @@
 
 Language: [简体中文](README_zh.md) | **English**
 
+Modrinth: [Summoning Wand](https://modrinth.com/mod/summoningwand)
+
 <div align="center">
 <img src="src/main/resources/icon.png" alt="icon.png"/>
 </div>
 
-This mod adds only one item - the Summoning Wand, which can teleport bound entities to your location<br/>
+This simple mod adds a wand for teleporting entities to your location, which works like `/tp` command.<br/>
 
 * **For:** Casual players who don't want to transport entities manually or type `/tp` commands
 * **Use Cases:** Summoning mounts/vehicles, transporting mobs, ...
@@ -27,8 +29,8 @@ This mod adds only one item - the Summoning Wand, which can teleport bound entit
 [//]: # (Demo Video：[Bilibili]&#40;&#41;)
 
 ### Item Information
-* Name: Summoning Wand
-* ID: `summoningwand:summoning_wand`
+* Item Name: Summoning Wand
+* Item ID: `summoningwand:summoning_wand`
 * Creative Tab: Tools & Utilities
 * Durability: 132
 * Crafting Recipe:
@@ -41,9 +43,9 @@ This mod adds only one item - the Summoning Wand, which can teleport bound entit
     * Unbound wand texture: <span><img src="res/summoning_wand_32x.png" alt="summoning_wand.png" /></span>
     * Bound wand texture: <span><img src="res/summoning_wand_activated_32x.png" alt="summoning_wand_activated.png" /></span> (with the display name turning yellow and followed by bound entity's name/type)
     * Binds via UUID, meaning the binding won't lose after logging out and logging in again.
-    * Default valid target entities: Non-player mobs, falling blocks, minecarts, boats, etc.
+    * Default valid target entities: Any entities supporting right-click interaction, like mobs (including players), vehicles (such as minecarts and boats) and falling blocks.
 * **Teleporting Entities**: Hold the wand in the designated hand (default: **main hand**) and right-click a block to teleport the bound entity.
-    * The mechanism of teleportation is essentially the same as `/tp` command, but includes passengers; Hold `Shift` to prevent passengers from being teleported.
+    * The mechanism of teleportation is essentially the same as `/tp` command, but includes passengers; Hold `Shift` to prevent teleporting passengers.
     * Entities in unloaded chunks cannot be teleported.
     * The target position can be the interacted block's location or the one adjacent to the interacted face (see [`SummoningWandItem.java`](src/main/java/xyc/summoningwand/SummoningWandItem.java)).
     * NO SAFETY CHECKS (suffocation, fall damage, fire/lava) are conducted, so keep cautious when teleporting living entities!
@@ -59,9 +61,9 @@ This mod adds only one item - the Summoning Wand, which can teleport bound entit
   ```
 
 * `<allClients|client|common>`
-  - `allClients`: Manage all players' client configs (requires OP 4)
+  - `allClients`: Manage all players' client configs (requires permission level 4)
   - `client`: Manage your client config
-  - `common`: Manage common config (refreshing requires OP 4)
+  - `common`: Manage common config (refreshing requires permission level 4)
 * `<GET|REFRESH>`
   - `GET`: View configs
   - `REFRESH`: Reload configs
@@ -70,22 +72,26 @@ This mod adds only one item - the Summoning Wand, which can teleport bound entit
 > This mod synchronizes client configs to the server when you log in or manually refresh your local config, so that your wand-hand config works correctly on the server.
 
 ## Configuration
-See [`Config.java`](src/main/java/xyc/summoningwand/Config.java)
+See [`Config.java`](src/main/java/xyc/summoningwand/Config.java) or your local config files
 
-## Mod Integration
-### Curtain
-* Can bind and teleport fake players (`EntityPlayerMPFake`)
-
+## Mod Integrations
 ### Yes Steve Model
 * Uses arm animations of hoes (`#yes_steve_model:hoes`)
 
 ## Tested Mod Compatibilities
+> Theoretically, the wand can bind any entity supporting right-click interaction, including all mobs and some non-mob entities; therefore only some tested special cases are listed below as examples.
+### Curtain
+* Can bind and teleport fake players (`EntityPlayerMPFake`)
+
 ### Create
 * Can bind and teleport assembled minecarts
 * Cannot bind other kinds of dynamic structures (windmills, trains, etc.)
 
 ### Immersive Aircraft
 * Can bind and teleport aircraft in this mod
+
+## About Release Versions
+As I don't know how to customize which files should be packed into the Jar, I delete the redundant directories of `.cache/` and `xyc/summoningwand/datagen/` manually after building, which reduces the file size by about 12 KB without affecting its operation.
 
 ## Notes
 This is my first Minecraft mod and a learning project for Forge/NeoForge development.<br/>
